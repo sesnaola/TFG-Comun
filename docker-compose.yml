@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  db:
+    container_name: db
+    build: ./app/db
+    environment:
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: Welcome1
+      MYSQL_ROOT_PASSWORD: Welcome1
+      MYSQL_DATABASE: campusdb
+    restart: always
+    ports:
+      - "3306:3306"
+  app:
+    container_name: app
+    build: ./app
+    environment:
+      MYSQL_DATABASE: campusdb
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: Welcome1
+      MYSQL_HOST: db
+    ports:
+      - "3080:3080"
+    depends_on:
+      - db
+    restart: on-failure
+  client:
+    container_name: client
+    build: ./client
+    ports:
+      - "8080:8080"
+    restart: on-failure

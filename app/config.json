@@ -1,0 +1,19 @@
+{
+  "server": {
+    "port": 3000
+  },
+  "db": {
+    "host": "localhost",
+    "user": "admin",
+    "password": "Welcome1",
+    "database": "campusdb"
+  },
+  "syncIPFaceRecognition": {
+    "IP": "http://192.168.227.128",
+    "port": 8000
+  },
+  "syncIPCardID": {
+    "IP": "http://192.168.170.68",
+    "port": 5000
+  }
+}
